@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказы (фильтры) — SmartLine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: { 50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87' }
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f5f5f7] min-h-screen font-sans">
+
+  <include src="components/header.html"></include>
+  <include src="components/sidebar.html"></include>
+
+  <main class="ml-56">
+
+    <div class="px-6 pt-4 pb-3 flex items-center gap-4">
+      <div class="flex gap-1 bg-gray-50 p-1 rounded-xl border border-gray-200 shadow-sm">
+        <a href="/pages/orders-list.html" class="tab-item active">Список</a>
+        <a href="/pages/disputes-filters.html" class="tab-item inactive">Диспутные сообщения</a>
+        <a href="#" class="tab-item inactive">Фрод-репорты</a>
+      </div>
+      <div class="flex-1"></div>
+      <include src="components/search-bar.html"></include>
+    </div>
+
+    <div class="px-6 pb-8">
+      <div class="bg-white rounded-2xl shadow-sm border border-yellow-100 p-5">
+
+        <div class="flex flex-wrap gap-4">
+
+          <!-- Основные -->
+          <div class="filter-card w-52">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Основные</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Статус</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">ID заказа мерчанта</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">ARN</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Проект</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Сегмент</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Терминал</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Валюта</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Подозрительный</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn active">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Есть фродрепорт</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Длинная запись</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пользовательские поля -->
+          <div class="filter-card w-48">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Пользовательские поля</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Дескриптор</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Инвойс</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Тип платежа</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Дата сообщения</label>
+                <div class="flex items-center gap-2">
+                  <input type="text" value="20.12.2026" class="input-field text-center text-xs">
+                  <span class="text-gray-400 text-xs">—</span>
+                  <input type="text" value="21.12.2026" class="input-field text-center text-xs">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-D Secure -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">3-D Secure</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">3-D Secure</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn active">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Версия</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Сценарий</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Статический -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Статический</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Статический</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Родительский заказ</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Держатель карты -->
+          <div class="filter-card w-48">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Держатель карты</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Имя</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">E-mail</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Телефон</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Страна пребывания</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">IP адрес</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Логин</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Банк-эмитент -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Банк-эмитент</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Название</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Страна</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- QR -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">QR</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Аккаунт</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Карта -->
+          <div class="filter-card w-48">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Карта</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Держатель</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Маска карты</label>
+                <input type="text" class="input-field" placeholder="">
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Тип карты</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Субтип карты</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Продукт</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Лимиты -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Лимиты</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Сработал лимит</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Тип</label>
+                <select class="input-field"><option>Выберите значения</option></select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ребилл -->
+          <div class="filter-card w-44">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Ребилл</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Ребилл</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Рекуррент</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs text-gray-600 mb-1 block">Оплата сохраненной картой</label>
+                <div class="toggle-group">
+                  <button class="toggle-btn inactive">Да</button>
+                  <button class="toggle-btn inactive">Нет</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex items-center justify-end gap-3 mt-5 pt-4 border-t border-gray-100">
+          <button class="btn-secondary">Сбросить фильтры</button>
+          <button class="btn-primary">Применить</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

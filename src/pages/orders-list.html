@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы — SmartLine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: { 50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87' }
+                    },
+                    fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#f5f5f7] min-h-screen font-sans">
+
+<!-- Header -->
+<include src="components/header.html"></include>
+
+<!-- Sidebar -->
+<include src="components/sidebar.html"></include>
+
+<!-- Main Content -->
+<main class="ml-56 pt-0">
+
+    <!-- Top bar: tabs + search -->
+    <div class="px-6 pt-4 pb-3 flex items-center gap-4">
+        <include src="components/tabs.html"></include>
+        <div class="flex-1"></div>
+        <include src="components/search-bar.html"></include>
+    </div>
+
+    <!-- Active filters -->
+    <div class="px-6 pb-3 flex items-center gap-2">
+      <span class="filter-pill">
+        Дата по возрастанию
+        <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </span>
+        <span class="filter-pill">
+        Цена: по убыванию
+        <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </span>
+    </div>
+
+    <!-- Table -->
+    <div class="px-6 pb-4">
+        <div class="bg-white rounded-2xl shadow-sm border border-yellow-100 overflow-hidden">
+            <table class="w-full data-table">
+                <thead>
+                <tr>
+                    <th class="w-48">ID</th>
+                    <th>ID мерч.</th>
+                    <th>Проект</th>
+                    <th>Карта</th>
+                    <th>IP</th>
+                    <th>Статус</th>
+                    <th>Дата</th>
+                    <th>Сумма</th>
+                    <th class="w-32"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <!-- Row: Charged -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-600">1123433</td>
+                    <td class="text-gray-900">Test</td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-charged inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">Charged</span></td>
+                    <td class="text-gray-600">07.04.2926 09:51</td>
+                    <td class="text-gray-900 font-medium">$ 100.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-success">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Списать
+                            </button>
+                            <button class="btn-danger">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                Отменить
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: New -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-900">NameJam</td>
+                    <td>
+                        <span class="card-visa inline-flex items-center justify-center w-12 h-5 rounded text-[10px]">VISA</span>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-new inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">New</span></td>
+                    <td class="text-gray-600">31.03.2026 16:36</td>
+                    <td class="text-gray-900 font-medium">$ 48.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-success">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Списать
+                            </button>
+                            <button class="btn-danger">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                Отменить
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: Canceled -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-900">Test</td>
+                    <td><div class="w-5 h-5 bg-gray-200 rounded-sm"></div></td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-canceled inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">Canceled</span></td>
+                    <td class="text-gray-600">07.04.2926 09:51</td>
+                    <td class="text-gray-900 font-medium">$ 22.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-ghost">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+                                Вернуть
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: New -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-600">1123433</td>
+                    <td class="text-gray-900">Test</td>
+                    <td><div class="w-5 h-5 bg-gray-200 rounded-sm"></div></td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-new inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">New</span></td>
+                    <td class="text-gray-600">31.03.2026 16:36</td>
+                    <td class="text-gray-900 font-medium">$ 100.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-success">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Списать
+                            </button>
+                            <button class="btn-danger">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                Отменить
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: Charged -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-900">Test</td>
+                    <td><div class="w-5 h-5 bg-gray-200 rounded-sm"></div></td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-charged inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">Charged</span></td>
+                    <td class="text-gray-600">07.04.2926 09:51</td>
+                    <td class="text-gray-900 font-medium">$ 48.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: Charged -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-900">Test</td>
+                    <td><div class="w-5 h-5 bg-gray-200 rounded-sm"></div></td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-charged inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">Charged</span></td>
+                    <td class="text-gray-600">31.03.2026 16:36</td>
+                    <td class="text-gray-900 font-medium">$ 22.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Row: Charged -->
+                <tr>
+                    <td>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-900 font-medium">123456789012345678</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </td>
+                    <td class="text-gray-400">—</td>
+                    <td class="text-gray-900">Test</td>
+                    <td><div class="w-5 h-5 bg-gray-200 rounded-sm"></div></td>
+                    <td class="text-gray-400">—</td>
+                    <td><span class="status-charged inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">Charged</span></td>
+                    <td class="text-gray-600">07.04.2926 09:51</td>
+                    <td class="text-gray-900 font-medium">$ 48.00</td>
+                    <td>
+                        <div class="flex items-center gap-2">
+                            <button class="text-gray-400 hover:text-gray-600 p-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <include src="components/pagination.html"></include>
+
+</main>
+
+</body>
+</html>

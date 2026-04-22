@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали заказа — SmartLine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purple: { 50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87' }
+                    },
+                    fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#f5f5f7] min-h-screen font-sans">
+
+<!-- Header -->
+<include src="components/header.html"></include>
+
+<!-- Sidebar -->
+<include src="components/sidebar.html"></include>
+
+<!-- Main -->
+<main class="ml-56">
+
+    <!-- Top bar -->
+    <div class="px-6 pt-4 pb-3 flex items-center gap-4">
+        <div class="flex gap-1 bg-gray-50 p-1 rounded-xl border border-gray-200 shadow-sm">
+            <a href="/pages/orders-list.html" class="tab-item active">Список</a>
+            <a href="/pages/disputes-filters.html" class="tab-item inactive">Диспутные сообщения</a>
+            <a href="#" class="tab-item inactive">Фрод-репорты</a>
+        </div>
+        <div class="flex-1"></div>
+        <include src="components/search-bar.html"></include>
+    </div>
+
+    <div class="px-6 pb-8">
+
+        <!-- Order Info Card -->
+        <div class="card-container mb-5">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-lg font-bold text-gray-900">$ 100.00</span>
+                    <span class="text-gray-400">—</span>
+                    <a href="#" class="text-gray-500 hover:text-purple-600 underline text-sm">10100662762266222441</a>
+                </div>
+                <button class="btn-danger">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    Отменить
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-8 gap-y-0">
+                <div class="detail-field">
+                    <span class="label">Статус</span>
+                    <span class="value text-red-600">Error</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Номер карты</span>
+                    <span class="value">411111******1111 <span class="card-visa inline-flex items-center justify-center w-10 h-4 rounded text-[9px] ml-1">VISA</span></span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Причина отказа</span>
+                    <span class="value">Unknown terminal currency</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Держатель</span>
+                    <span class="value">Kate</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">ID заказа мерчанта</span>
+                    <span class="value">123</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">IP</span>
+                    <span class="value">172.18.0.11</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Проект</span>
+                    <span class="value"><a href="#" class="text-purple-600 hover:underline">EdTech</a></span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Терминал</span>
+                    <span class="value">4722</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Дескриптор</span>
+                    <span class="value text-gray-400">—</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Описание</span>
+                    <span class="value">123</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Дополнительные поля</span>
+                    <span class="value"><a href="#" class="text-purple-600 hover:underline">Показать</a></span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Создан</span>
+                    <span class="value">18.04.2026 15:12</span>
+                </div>
+                <div class="detail-field">
+                    <span class="label">Обновлен</span>
+                    <span class="value text-gray-400">—</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Issuer + Location Card -->
+        <div class="card-container">
+
+            <!-- Эмитент -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-base font-semibold text-gray-900">Эмитент</h3>
+                    <button class="flex items-center gap-1.5 text-gray-500 hover:text-gray-700 text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        API
+                    </button>
+                </div>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-0">
+                    <div class="detail-field"><span class="label">Название</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">BIN-код</span><span class="value">411111</span></div>
+                    <div class="detail-field"><span class="label">Страна</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">Продукт</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">Валюта</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">Категория</span><span class="value text-gray-400">—</span></div>
+                </div>
+            </div>
+
+            <!-- Местоположение -->
+            <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-3">Местоположение</h3>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-0">
+                    <div class="detail-field"><span class="label">IP</span><span class="value">172.18.0.11</span></div>
+                    <div class="detail-field"><span class="label">Город</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">Страна</span><span class="value text-gray-400">—</span></div>
+                    <div class="detail-field"><span class="label">Регион</span><span class="value text-gray-400">—</span></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

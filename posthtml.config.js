@@ -1,0 +1,8 @@
+export default {
+  plugins: {
+    'posthtml-include': {
+      root: './src',
+      encoding: 'utf-8'
+    }
+  }
+};
