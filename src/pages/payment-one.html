@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>SmartLine - Оплата</title>
+    <style>
+        body {
+            background-image: url("../image/bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: Gilroy, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="payment-container">
+    <div class="flex justify-between">
+        <div>
+            <img src="../image/logo.svg" alt="logo" class="logo-icon max-w-[182px]">
+        </div>
+        <div class="w-1/2">
+            <div class="amount-section flex w-full justify-between items-end mb-4">
+                <div class="amount-label">Сумма:</div>
+                <div class="amount">$ 5,756</div>
+            </div>
+
+            <div class="description-section flex w-full justify-between">
+                <div class="description-label">Описание платежа:</div>
+                <div class="description-value">11122312312312</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-methods">
+        <img src="../image/payments/mastercard.svg" alt="MasterCard" class="max-w-[40px]">
+        <img src="../image/payments/maestro.svg" alt="Maestro" class="max-w-[40px]">
+        <img src="../image/payments/visa.svg" alt="Visa" class="max-w-[40px]">
+    </div>
+
+    <div class="card__form">
+        <div class="form-container">
+
+            <div class="card-front">
+                <label class="label">
+                    Номер карты
+                </label>
+                <div class="card-number-wrapper">
+                    <input type="text" class="card-number !mb-1" placeholder="1234 5678 9101 1112" maxlength="19" autocomplete="off">
+                    <div class="card-type-icon"></div>
+                </div>
+                <span class="input-hint text-[#818181]">Введите цифры без пробелов</span>
+
+                <div class="exp-container">
+                    <label class="label">
+                        Действительна до
+                    </label>
+                    <label>
+                        <select class="card-month">
+                            <option>ММ</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </label>
+                    <select class="card-year">
+                        <option>ГГ</option>
+                        <option>1980</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                    </select>
+                </div>
+
+                <div class="cardholder-container">
+                    <label class="label">Держатель карты
+                    </label>
+                    <input type="text" class="card-holder !mb-1" placeholder="IVAN IVANOV" />
+                    <span class="input-hint text-[#818181]">Оставьте поле пустым, если на карте нет имени</span>
+                </div>
+
+                <div class="cvc-container">
+                    <label class="label"> CVV</label>
+                    <div class="cvc-wrapper">
+                        <input class="card-cvc" placeholder="XXX" type="password" minlength="3" maxlength="3" autocomplete="off">
+                        <button type="button" class="cvc-toggle" id="cvcToggle" aria-label="Показать/скрыть CVC">
+                            <!-- Иконка "глаз" (видима по умолчанию) -->
+                            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <!-- Иконка "глаз зачёркнутый" (скрыта по умолчанию) -->
+                            <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="cvc-hint mt-1">Последние три цифры на обороте</p>
+                </div>
+            </div>
+
+            <div class="card-back">
+                <div class="card-stripe">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button type="submit" class="pay-button">Оплатить $ 5,756</button>
+
+    <div class="security-badges">
+        <img src="../image/payments/visa_secure.svg" alt="visa_secure" class="max-w-[40px]">
+        <img src="../image/payments/mastercard_secure.svg" alt="mastercard_secure" class="max-w-[100px]">
+        <img src="../image/payments/pci_dss.svg" alt="pci_dss" class="max-w-[100px]">
+    </div>
+</div>
+
+<script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ВИДИМОСТИ CVC =====
+    // Получаем элементы управления CVC
+    const cvcInput = document.querySelector('.card-cvc');
+    const cvcToggle = document.getElementById('cvcToggle');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+    // Обработчик клика по кнопке показа/скрытия CVC
+    cvcToggle.addEventListener('click', function() {
+        // Если сейчас пароль — показываем текст
+        if (cvcInput.type === 'password') {
+            cvcInput.type = 'text';
+            eyeIcon.style.display = 'none';      // Скрываем иконку "глаз"
+            eyeOffIcon.style.display = 'block';  // Показываем иконку "глаз зачёркнутый"
+        } else {
+            // Иначе скрываем текст
+            cvcInput.type = 'password';
+            eyeIcon.style.display = 'block';     // Показываем иконку "глаз"
+            eyeOffIcon.style.display = 'none';   // Скрываем иконку "глаз зачёркнутый"
+        }
+    });
+
+    // ===== ОБРАБОТКА НОМЕРА КАРТЫ =====
+    const cardNumberInput = document.querySelector('.card-number');
+    const cardTypeIcon = document.querySelector('.card-type-icon');
+
+    cardNumberInput.addEventListener('input', function(e) {
+        // Удаляем все нецифровые символы
+        let value = e.target.value.replace(/\D/g, '');
+
+        // Ограничиваем до 16 цифр
+        value = value.substring(0, 16);
+
+        // Добавляем пробел после каждых 4 цифр для форматирования
+        value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+        // Обновляем значение в поле
+        e.target.value = value;
+
+        // Определяем и отображаем тип карты
+        detectCardType(value.replace(/\s/g, ''));
+    });
+
+    // Функция определения типа карты по первым цифрам
+    function detectCardType(number) {
+        // Удаляем пробелы для чистого сравнения
+        const cleanNumber = number.replace(/\s/g, '');
+
+        // Visa: начинается с 4
+        if (/^4/.test(cleanNumber)) {
+            cardTypeIcon.className = 'card-type-icon visa';
+        }
+        // MasterCard: начинается с 51-55 или 2221-2720
+        else if (/^5[1-5]/.test(cleanNumber) || /^2(22[1-9]|2[3-9][0-9]|[3-6][0-9]{2}|7[01][0-9]|720)/.test(cleanNumber)) {
+            cardTypeIcon.className = 'card-type-icon mastercard';
+        }
+        // Maestro: начинается с 50, 56-69
+        else if (/^5[06-9]/.test(cleanNumber) || /^6[0-9]/.test(cleanNumber)) {
+            cardTypeIcon.className = 'card-type-icon maestro';
+        }
+        // Неизвестный тип — скрываем иконку
+        else {
+            cardTypeIcon.className = 'card-type-icon';
+        }
+    }
+
+    // ===== CVC: РАЗРЕШАЕМ ТОЛЬКО ЦИФРЫ =====
+    cvcInput.addEventListener('input', function(e) {
+        // Удаляем все нецифровые символы
+        e.target.value = e.target.value.replace(/\D/g, '');
+    });
+
+    // ===== ДЕРЖАТЕЛЬ КАРТЫ: ТОЛЬКО БУКВЫ И ПРОБЕЛЫ =====
+    const cardHolderInput = document.querySelector('.card-holder');
+    cardHolderInput.addEventListener('input', function(e) {
+        // Оставляем только буквы, пробелы и дефисы, переводим в верхний регистр
+        e.target.value = e.target.value.replace(/[^a-zA-Z\s-]/g, '').toUpperCase();
+    });
+
+    // ===== МЕСЯЦ/ГОД: БЛОКИРУЕМ НЕЦИФРОВЫЕ КЛАВИШИ =====
+    document.querySelectorAll('.card-month, .card-year').forEach(select => {
+        select.addEventListener('keydown', function(e) {
+            // Запрещаем ввод нецифровых символов (кроме Backspace, Delete, Tab)
+            if (e.key && !/^\d$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'Tab') {
+                e.preventDefault();
+            }
+        });
+    });
+
+    // ===== ВАЛИДАЦИЯ ФОРМЫ ПРИ ОТПРАВКЕ =====
+    document.querySelector('.pay-button').addEventListener('click', function(e) {
+        e.preventDefault(); // Предотвращаем стандартную отправку формы
+
+        // Получаем и очищаем значения полей
+        const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+        const cvc = cvcInput.value;
+        const cardHolder = cardHolderInput.value.trim();
+
+        let isValid = true; // Флаг валидности формы
+
+        // Проверка номера карты (должно быть 16 цифр)
+        if (cardNumber.length !== 16) {
+            cardNumberInput.classList.add('invalid'); // Добавляем класс ошибки
+            isValid = false;
+        } else {
+            cardNumberInput.classList.remove('invalid'); // Убираем класс ошибки
+        }
+
+        // Проверка CVC (3-4 цифры)
+        if (cvc.length < 3 || cvc.length > 4) {
+            cvcInput.classList.add('invalid');
+            isValid = false;
+        } else {
+            cvcInput.classList.remove('invalid');
+        }
+
+        // Результат валидации
+        if (isValid) {
+            alert('Форма заполнена корректно!');
+            // Здесь будет код отправки данных на сервер
+            // Например: fetch('/api/payment', { method: 'POST', body: ... })
+        } else {
+            alert('Пожалуйста, проверьте правильность заполнения полей');
+        }
+    });
+</script>
+</body>
+</html>

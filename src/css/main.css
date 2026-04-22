@@ -211,6 +211,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy/gilroy-regular.eot'); /* IE 9 Compatibility Mode */
+    src: url('../fonts/Gilroy/gilroy-regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('../fonts/Gilroy/gilroy-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/Gilroy/gilroy-regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('../fonts/Gilroy/gilroy-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/Gilroy/gilroy-regular.svg#gilroy-regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+.html {
+    min-width: 980px;
+}
 body {
     font-family: 'Raleway', system-ui, sans-serif;
     margin: 0;

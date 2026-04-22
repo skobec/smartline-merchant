@@ -41,7 +41,7 @@ export default defineConfig({
                         return 'fonts/[name][extname]';
                     }
 
-                    return 'assets/[name][extname]';
+                    return 'src/[name][extname]';
                 }
             }
         }

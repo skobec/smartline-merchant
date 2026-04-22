@@ -1,0 +1,712 @@
+/*карты оплаты*/
+.card__form {
+    font-family: Gilroy, sans-serif;
+    position: relative;
+    z-index: 1;
+    .input-hint {
+        font-size: 10px;
+    }
+    .amount {
+        font-size: 12px;
+    }
+
+    .amount strong {
+        font-size: 14px;
+    }
+
+    .card-back {
+        top: 40px;
+        right: 0;
+        z-index: -2;
+    }
+
+    .card-btn {
+        background-color: rgba(251, 251, 251, 0.8);
+        color: #000000;
+        position: absolute;
+        bottom: -55px;
+        right: 0;
+        width: 150px;
+        border-radius: 8px;
+        height: 42px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .card-btn:hover {
+        background-color: rgba(251, 251, 251, 1);
+    }
+
+    .card-cvc {
+        width: 60px;
+        margin-bottom: 0;
+    }
+
+    .card-front,
+    .card-back {
+        border: 1px solid #DCDCDC;
+        position: absolute;
+        background-color: #ffffff;
+        width: 424px;
+        height: 280px;
+        border-radius: 6px;
+        padding: 20px 30px 0;
+        box-sizing: border-box;
+        font-size: 10px;
+        letter-spacing: 1px;
+        font-weight: 300;
+    }
+    .card-back {
+        padding-top: 42px;
+    }
+
+    .card-image {
+        float: right;
+        height: 100%;
+    }
+
+    .card-image i {
+        font-size: 40px;
+    }
+
+    .card-month {
+        width: 45% !important;
+    }
+
+    .card-number,
+    .card-holder {
+        width: 100%;
+    }
+
+    .card-stripe {
+        width: 100%;
+        height: 46px;
+        background-color: #E0E0E0;
+        position: absolute;
+        right: 0;
+    }
+
+    .card-success {
+        color: #1faa00;
+    }
+
+    .card-token {
+        display: none;
+    }
+
+    .card-year {
+        width: 45%;
+        float: right;
+    }
+
+    .cardholder-container {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .cvc-container {
+        position: absolute;
+        width: 128px;
+        right: -130px;
+        top: 150px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .cvc-container .label {
+        width: 100%;
+    }
+
+    .cvc-hint {
+        font-size: 10px;
+        color: #818181;
+        letter-spacing: .5px;
+    }
+
+    .form-container {
+        margin: auto;
+        height: 364px;
+        position: relative;
+    }
+
+    .form-errors {
+        color: #d50000;
+    }
+
+    .form-errors,
+    .card-success {
+        background-color: white;
+        width: 500px;
+        margin: 0 auto 10px;
+        height: 50px;
+        border-radius: 8px;
+        padding: 0 20px;
+        font-weight: 400;
+        box-sizing: border-box;
+        line-height: 46px;
+        letter-spacing: .5px;
+        text-transform: none;
+    }
+
+    .form-errors p,
+    .card-success p {
+        margin: 0 5px;
+        display: inline-block;
+    }
+
+    .exp-container {
+        width: 100%;
+        padding-left: 56%;
+        display: inline-block;
+        float: right;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .image-container {
+        width: 100%;
+        position: relative;
+        height: 55px;
+        margin-bottom: 5px;
+        line-height: 55px;
+    }
+
+    .image-container img {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    input ,select{
+        outline: none;
+        background-color: #ffffff;
+        border: 1px solid #E0E0E0;
+        height: 32px;
+        line-height: 30px;
+        padding: 0 10px;
+        margin: 0 0 25px;
+        font-size: 10px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        letter-spacing: .7px;
+    }
+
+    input::-webkit-input-placeholder {
+        color: gray;
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+
+    input:-moz-placeholder {
+        color: gray;
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+
+    input::-moz-placeholder {
+        color: gray;
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+
+    input:-ms-input-placeholder {
+        color: gray;
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+
+    input.invalid {
+        border: solid 2px #eb0000;
+        height: 34px;
+    }
+
+    .label {
+        display: block;
+        margin: 0 auto 6px;
+        font-size: 16px;
+    }
+
+    .shadow {
+        position: absolute;
+        right: 0;
+        width: 284px;
+        height: 214px;
+        top: 36px;
+        background-color: #000;
+        z-index: -1;
+        border-radius: 8px;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+.payment-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 24px 28px 16px;
+    max-width: 648px;
+    width: 100%;
+    border: 2px solid #ffeaa7;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    font-size: 36px;
+    font-weight: bold;
+    color: #6c5ce7;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 20px;
+    color: #2d3436;
+    font-weight: 500;
+}
+
+.amount-section {
+}
+
+.amount-label {
+    font-size: 14px;
+    color: #2A2A2A;
+    font-family: Gilroy, sans-serif;
+    font-weight: bold;
+}
+
+.amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2d3436;
+    font-family: Gilroy, sans-serif;
+    margin-bottom: -8px;
+}
+
+.description-section {
+    margin-bottom: 30px;
+}
+
+.description-label {
+    font-size: 14px;
+    color: #2A2A2A;
+    margin-bottom: 5px;
+    font-family: Gilroy, sans-serif;
+    font-weight: bold;
+}
+
+.description-value {
+    font-size: 16px;
+    color: #2d3436;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.payment-methods img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    color: #2d3436;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.form-input::placeholder {
+    color: #b2bec3;
+}
+
+.expiry-cvv-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.expiry-selects {
+    display: flex;
+    gap: 10px;
+}
+
+.expiry-select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #dfe6e9;
+    border-radius: 4px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+}
+
+.pay-button {
+    width: 100%;
+    padding: 12px;
+    background: #945AD8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+    font-family: Gilroy, sans-serif;
+}
+
+.pay-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(108, 92, 231, 0.4);
+}
+
+.security-badges {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.security-badges img {
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
+.visa-badge {
+    color: #1a1f71;
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .payment-container {
+        padding: 25px;
+    }
+
+    .expiry-cvv-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ===== Обёртка для поля CVC ===== */
+.cvc-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* ===== Кнопка показа/скрытия CVC ===== */
+.cvc-toggle {
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: white; /* Белый цвет иконки для контраста на синем фоне */
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cvc-toggle:hover {
+    opacity: 1;
+}
+
+.cvc-toggle svg {
+    width: 18px;
+    height: 18px;
+    stroke: gray; /* Явно задаём цвет обводки для SVG */
+    fill: none;
+}
+
+/* ===== Иконка типа карты ===== */
+.card-type-icon {
+    position: absolute;
+    right: 10px;
+    top: 48%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 20px;
+    display: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.card-type-icon.visa {
+    display: block;
+    background-image: url('../image/payments/visa.svg');
+}
+
+.card-type-icon.mastercard {
+    display: block;
+    background-image: url('../image/payments/mastercard.svg');
+}
+
+.card-type-icon.maestro {
+    display: block;
+    background-image: url('../image/payments/maestro.svg');
+}
+
+/* ===== Обёртка для поля номера карты ===== */
+.card-number-wrapper {
+    position: relative;
+}
+
+.card-number-wrapper input {
+    padding-right: 60px; /* Место под иконку карты */
+}
+
+
+/* ===== Основной контейнер ===== */
+.payment-container-two {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #ffeaa7;
+    font-family: Gilroy, sans-serif;
+    /* ===== Сумма и описание ===== */
+    .amount-section {
+        margin-bottom: 8px;
+    }
+
+    .amount-label {
+        font-size: 14px;
+        color: #636e72;
+        margin-bottom: 5px;
+    }
+
+    .amount {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2d3436;
+    }
+
+    .description-section {
+        margin-bottom: 25px;
+    }
+
+    .description-label {
+        font-size: 14px;
+        color: #636e72;
+        margin-bottom: 5px;
+    }
+
+    .description-value {
+        font-size: 16px;
+        color: #2d3436;
+        font-weight: 500;
+    }
+
+    /* ===== Иконки платежных систем ===== */
+    .payment-methods {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 35px;
+        align-items: center;
+    }
+
+    .payment-methods img {
+        height: 24px;
+        object-fit: contain;
+    }
+
+    /* ===== Форма с лейблами слева ===== */
+    .form-row {
+        display: grid;
+        grid-template-columns: 148px 1fr;
+        margin-bottom: 22px;
+        align-items: flex-start;
+    }
+
+    .form-label {
+        font-size: 14px;
+        color: #2d3436;
+        padding-top: 10px;
+        font-weight: 500;
+    }
+
+    .form-input-wrapper {
+        position: relative;
+    }
+
+    .form-input {
+        min-width: 60px;
+        padding: 2px 8px;
+        border: 1px solid #dfe6e9;
+        border-radius: 4px;
+        font-size: 12px;
+        transition: all 0.3s;
+        font-family: inherit;
+        background: white;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+    }
+
+    .form-input::placeholder {
+        color: #b2bec3;
+    }
+
+    .input-hint {
+        font-size: 12px;
+        color: #636e72;
+        margin-top: 5px;
+    }
+
+    /* ===== Поле номера карты с иконкой ===== */
+    .card-number-wrapper {
+        position: relative;
+    }
+
+    .card-type-icon {
+        position: absolute;
+        right: 6px;
+        top: 44%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 26px;
+        display: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .card-type-icon.visa {
+        display: block;
+        background-image: url('../image/payments/visa.svg');
+    }
+
+    .card-type-icon.mastercard {
+        display: block;
+        background-image: url('../image/payments/mastercard.svg');
+    }
+
+    .card-type-icon.maestro {
+        display: block;
+        background-image: url('../image/payments/maestro.svg');
+    }
+
+    /* ===== Срок действия (месяц и год) ===== */
+    .expiry-wrapper {
+        display: flex;
+        gap: 10px;
+    }
+
+    .expiry-select {
+        flex: 1;
+        padding: 0 6px;
+        border: 1px solid #dfe6e9;
+        border-radius: 4px;
+        font-size: 12px;
+        background: white;
+        cursor: pointer;
+        color: #2d3436;
+        margin-bottom: 0;
+    }
+
+    .expiry-select:focus {
+        outline: none;
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+    }
+
+    /* ===== CVV с кнопкой показа ===== */
+    .cvc-wrapper {
+        position: relative;
+    }
+
+    .cvc-toggle {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        color: #636e72;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+    }
+
+    .cvc-toggle:hover {
+        opacity: 1;
+    }
+
+    .cvc-toggle svg {
+        width: 18px;
+        height: 18px;
+        stroke: #636e72;
+    }
+
+    /* ===== Значки безопасности ===== */
+    .security-badges {
+        margin-top: 16px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .security-badges img {
+        height: 30px;
+        object-fit: contain;
+        opacity: 0.8;
+    }
+}
